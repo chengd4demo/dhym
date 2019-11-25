@@ -1,0 +1,221 @@
+{% extends 'base_main.html' %}
+{% load static %}
+{% block header %}
+    <header class="main-header">
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <div class="logo-outer">
+                        <div class="logo">
+                            <a href="/static/html/index.html">
+                                <div style="width: 220px;height: 90px;">
+                                    <img style="float: left;" src="/static/images/logo.png" alt="">
+                                    <div style="width: 130px; height: 90px;float: right;">
+                                        <p style="height: 90px; line-height: 90px;text-align: center;font-weight: bold;font-size: 20px;">
+                                            鼎鸿时代物联</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <!-- Togg le Button -->
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu-button"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown"><a href="/static/html/index.html">首&nbsp;&nbsp;页</a>
+                                    </li>
+                                    <li class="dropdown current"><a href="{% url 'showSecond:news' %}">新闻动态</a>
+                                    </li>
+                                    <li class="dropdown"><a href="/static/html/zhaoshang.html">招商加盟</a>
+                                    </li>
+                                    <li class="dropdown"><a href="/static/html/about.html">公司简介</a>
+                                    </li>
+                                    <li class="dropdown"><a href="/static/html/contact.html">联系我们</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+
+                        <!-- Main Menu End-->
+                        <div class="outer-box clearfix">
+                            <!-- Button Box -->
+                            <div class="btn-box">
+                                <a href="/static/html/contact.html" class="theme-btn btn-style-one"><span
+                                        class="icon flaticon-phone-receiver"></span><i> 电话 ： 400-013-0138</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
+
+        <!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo pull-left">
+                    <a href="/static/html/index.html" title=""><img src="/static/images/logo-small.png" alt="" title=""></a>
+                </div>
+                <!--Right Col-->
+                <div class="pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <div class="navbar-collapse show collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="dropdown"><a href="/static/html/index.html">首&nbsp;&nbsp;页</a>
+                                </li>
+                                <li class="dropdown current"><a href="{% url 'showSecond:news' %}">新闻动态</a>
+                                </li>
+                                <li class="dropdown"><a href="/static/html/zhaoshang.html">招商加盟</a>
+                                </li>
+                                <li class="dropdown"><a href="/static/html/about.html">公司简介</a>
+                                </li>
+                                <li class="dropdown"><a href="/static/html/contact.html">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
+                </div>
+            </div>
+        </div><!-- End Sticky Menu -->
+    </header>
+    <!-- End Main Header -->
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url({% static 'images/background/8.jpg' %});">
+        <div class="auto-container">
+            <div class="clearfix">
+                <div class="pull-left">
+                    <h1>实时新闻</h1>
+                    <div class="text">公司的重大活动和改动我们第一时间都会通知我们的用户</div>
+                </div>
+                <div class="pull-right">
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="/static/html/index.html">首页</a></li>
+                        <li>新闻动态</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                    <div class="blog-classic">
+                        {% for new in page_object.object_list %}
+                            <!-- News Block Three -->
+                            <div class="news-block-three">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        {#<div class="post-date">08-15</div>#}
+                                        <a href="{% url 'showSecond:newsById' %}?id={{ new.id }}"><img
+                                                src="/static/{{ new.news_image }}" alt=""/></a>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3>
+                                            <a href="{% url 'showSecond:newsById' %}?id={{ new.id }}">{{ new.news_title }}</a>
+                                        </h3>
+                                        <ul class="post-info">
+                                            <li>阅读次数 ：{{ new.news_count }}</li>
+                                            <li>发布时间 ：{{ new.news_date }}</li>
+                                        </ul>
+                                        <div class="text">
+                                            {{ new.news_paper }}
+                                        </div>
+                                        <a class="read-more" href="{% url 'showSecond:newsById' %}?id={{ new.id }}">了解详情<span
+                                                class="arrow right flaticon-next-7"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {# 具体分页 #}
+                        <!--Post Share Options-->
+                        <div class="styled-pagination text-center">
+                            <ul class="clearfix">
+                                {#判断是否有上一页#}
+                                {% if page_object.has_previous %}
+                                    <li class="prev">
+                                        <a href="{% url 'showSecond:news' %}?page={{ page_object.previous_page_number }}">
+                                            <span class="flaticon-back"></span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li style="display: none">
+                                        <a href="#">
+                                            <span class="flaticon-back"></span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {#后台传来的页码数#}
+                                {% for page_index in page_range %}
+                                    {#判断当前的下标是否是我们所点击的下标，是的话就给个默认值#}
+                                    {% ifequal page_index page_object.number %}
+                                        <li class="active">
+                                            {#打印一个个的页码,给每个页码点击按钮#}
+                                            <a href="{% url 'showSecond:news' %}?page={{ page_index }}">{{ page_index }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a href="{% url 'showSecond:news' %}?page={{ page_index }}">{{ page_index }}</a>
+                                        </li>
+                                    {% endifequal %}
+                                {% endfor %}
+                                {#判断是否有下一页，才进行点击#}
+                                {% if page_object.has_next %}
+                                    <li class="next">
+                                        <a href="{% url 'showSecond:news' %}?page={{ page_object.next_page_number }}">
+                                            <span class="flaticon-right-arrow"></span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li style="display: none">
+                                        <a href="#">
+                                            <span class="flaticon-right-arrow"></span>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Sidebar Side-->
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                    <aside class="sidebar">
+                        <div class="sidebar-inner">
+                            <!-- Categories Widget -->
+                            <div class="sidebar-widget categories-widget">
+                                <div class="sidebar-title">
+                                    <h2>公司新闻动态</h2>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="blog-cat">
+                                        {% for new in news_list %}
+                                            <li><a href="{% url 'showSecond:newsById' %}?id={{ new.id }}">{{ new.news_title }} <sup>{{new.news_count}}</sup></a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
