@@ -1,9 +1,9 @@
 $(function () {
     // 正则匹配cookie中的csrftoken，传入cookie名字
-    function getCookie(name) {
-        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
-        return r ? r[1] : undefined;
-    }
+    // function getCookie(name) {
+    //     var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    //     return r ? r[1] : undefined;
+    // }
     // $('#sfg').click(function () {
     //     //跳转
     //     location.href='/show/news/'
@@ -47,9 +47,6 @@ $(function () {
             $.ajax({
                 url: '/show/savemessage/',
                 type: "POST",
-                headers: {
-                    "X-CSRFToken": getCookie("csrftoken")
-                },
                 dataType: "json",
                 data:$('#contact-form').serialize(),
                 async : false,

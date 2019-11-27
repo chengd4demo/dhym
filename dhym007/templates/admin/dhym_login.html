@@ -31,25 +31,28 @@
 		 		<img src="{% static 'assets/images/logo-icon.png' %}" alt="logo icon">
 		 	</div>
 		  <div class="card-title text-uppercase text-center py-3">鼎鸿物联网管理后台</div>
-		    <form>
+		    <form id="loginForm" action="{% url 'adminSecond:auth' %}" method="post">
 			  <div class="form-group">
 			  <label for="exampleInputUsername" class="">用户名</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="请输入用户名">
+				  <input type="text" id="user" name="user" class="form-control input-shadow" placeholder="请输入用户名">
 				  <div class="form-control-position">
 					  <i class="icon-user"></i>
 				  </div>
 			   </div>
 			  </div>
 			  <div class="form-group">
-			  <label for="exampleInputPassword" class="">密码</label>
+			  <label for="exampleInputPassword" class="" >密码</label>
 			   <div class="position-relative has-icon-right">
-				  <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="请输入密码">
+				  <input type="password" id="pswd" name="pswd" class="form-control input-shadow" placeholder="请输入密码">
 				  <div class="form-control-position">
 					  <i class="icon-lock"></i>
 				  </div>
 			   </div>
 			  </div>
+                <div class="form-row">
+                    <lable style="color: red" id="errorId">{{ errormsg }}</lable>
+                </div>
 			<div class="form-row">
 			 <div class="form-group col-6">
 			   <div class="icheck-material-primary">
@@ -61,7 +64,7 @@
 			  <a href="authentication-reset-password.html">重新设置密码</a>
 			 </div>-->
 			</div>
-			 <button type="button" class="btn btn-primary shadow-primary btn-block waves-effect waves-light">登录</button>
+			 <button type="submit" class="btn btn-primary shadow-primary btn-block waves-effect waves-light">登录</button>
 			 
 			</div>
 			 
@@ -79,6 +82,50 @@
   <script src="{% static 'assets/js/jquery.min.js' %}"></script>
   <script src="{% static 'assets/js/popper.min.js' %}"></script>
   <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-  
+  <script type="text/javascript">
+      window.onload  = function() {
+          var oForm = document.getElementById('loginForm');
+          var oUser = document.getElementById('user');
+          var oPswd = document.getElementById('pswd');
+          var oRemember = document.getElementById('user-checkbox');
+          var message = document.getElementById('errorId').innerHTML
+          //页面初始化时，如果账号密码cookie存在则填充
+          if (getCookie('user') && getCookie('pswd')) {
+              oUser.value = getCookie('user')
+              oPswd.value = getCookie('pswd')
+              oRemember.checked = true
+          }
+          oRemember.onchange = function() {
+              if (!this.checked) {
+                  delCookie('user')
+                  delCookie('pswd')
+              }
+          }
+          oForm.onsubmit = function() {
+              if (oRemember.checked && message!='') {
+                  setCookie('user',oUser.value,7);
+                  setCookie('pswd',oPswd.value,7);
+              }
+          }
+      };
+      function setCookie(name,value,day) {
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = name + '=' + value + ';expires=' + date
+      }
+      function getCookie(name) {
+          var reg = RegExp(name+'=([^;]+)')
+          var arr = document.cookie.match(reg)
+          if (arr) {
+              return arr[1]
+          } else {
+              return ''
+          }
+      }
+       //删除cookie
+      function delCookie(name){
+        setCookie(name,null,-1);
+      };
+  </script>
 </body>
 </html>

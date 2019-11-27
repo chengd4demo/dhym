@@ -9,7 +9,7 @@ class dhym_message(models.Model):
       message_name = models.CharField(max_length=16,null=False,blank=False)#留言姓名，不能为空
       message_phone = models.CharField(max_length=32,null=False,blank=False)#手机号码，不能为空
       message_content = models.TextField(max_length=255,null=False,blank=False)#留言内容，不能为空
-
+      message_time = models.DateTimeField(default=timezone.now,verbose_name='留言时间')#系统自动记录留言时间
       #映射到数据库名称
       class Meta:
             db_table = 'dhym_message'

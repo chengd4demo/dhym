@@ -61,6 +61,7 @@ def newsById(request):
 '''
 保存留言
 '''
+@csrf_exempt
 def savemessage(request):
     if request.is_ajax():
         print(request.POST)

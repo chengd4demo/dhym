@@ -11,6 +11,9 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="dhym007" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -24,20 +27,20 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/admin" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Pycharm-replase-Django\dhym007\templates\getshow" />
-      <recent name="E:\Pycharm-replase-Django\dhym007\static\html" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Pycharm-replase-Django\dhym007\templates\admin" />
+      <recent name="E:\Pycharm-replase-Django\dhym007\static\assets\js" />
       <recent name="E:\Pycharm-replase-Django\dhym007\static\assets\images" />
       <recent name="E:\Pycharm-replase-Django\dhym007\templates\getshow" />
       <recent name="E:\Pycharm-replase-Django\dhym007\static\html" />
-      <recent name="E:\Pycharm-replase-Django\dhym007\static" />
-      <recent name="E:\Pycharm-replase-Django\dhym007" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Pycharm-replase-Django\dhym007\templates\getshow" />
+      <recent name="E:\Pycharm-replase-Django\dhym007\static\html" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -59,8 +62,9 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="dhym007.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\Python\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -69,7 +73,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:80/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -97,10 +101,33 @@
       <workItem from="1574413169302" duration="2386000" />
       <workItem from="1574472025783" duration="6896000" />
       <workItem from="1574495383169" duration="1638000" />
+      <workItem from="1574497371963" duration="1744000" />
+      <workItem from="1574643005908" duration="739000" />
+      <workItem from="1574666521330" duration="5593000" />
+      <workItem from="1574728356200" duration="20334000" />
+      <workItem from="1574753097729" duration="16468000" />
+      <workItem from="1574769940207" duration="6347000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Python.DjangoServer">
+        <watch expression="request" language="Python" />
+        <watch expression="messages._for_write" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
