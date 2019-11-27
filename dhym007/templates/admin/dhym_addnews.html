@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>新闻发布</title>
+		<!--favicon-->
+		<link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+		<link rel="stylesheet" href="{% static 'assets/plugins/summernote/dist/summernote-bs4.css' %}" />
+		<!-- simplebar CSS-->
+		<link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+		<!-- Bootstrap core CSS-->
+		<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+		<!-- animate CSS-->
+		<link href="{% static 'assets/css/animate.css' %}" rel="stylesheet" type="text/css" />
+		<!-- Icons CSS-->
+		<link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+		<!-- Sidebar CSS-->
+		<link href="{% static 'assets/css/sidebar-menu.css' %}" rel="stylesheet" />
+		<!-- Custom Style-->
+		<link href="{% static 'assets/css/app-style.css' %}" rel="stylesheet" />
+
+	</head>
+
+	<body>
+
+		<!-- End Breadcrumb-->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header text-uppercase bg-white">
+						新闻编辑
+						<a class="float-sm-right" href="{% url 'adminSecond:dhym_adminews' %}" target='mains' id='a_clin' style="display: inline-block;width: 120px;color:#fff;background-color:#55ACEE;height: 40px;text-align: center;line-height:40px;"><i class="icon-arrow-left icons"></i>查看新闻</a>
+					</div>
+					<div class="card-body">
+						<form id="personal-info">
+							<div class="form-group row">
+								<label for="input-1" class="col-sm-2 col-form-label">新闻标题</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="input-1" name="fname" required>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="input-8" class="col-sm-2 col-form-label">新闻封面图片</label>
+								<div class="col-sm-10">
+									<input type="file" class="form-control" id="input-8" name="file" required>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="input-8" class="col-sm-2 col-form-label">新闻概述</label>
+								<div class="col-sm-10">
+									<textarea class="form-control"></textarea>
+								</div>
+							</div>
+							<div id="summernoteEditor">
+								<h4>The standard Lorem Ipsum passage, used since the 1500s</h4>
+								<img src="{% static 'assets/images/gallery/modal-img.jpg' %}" class="ml-2 mb-2 w-25" alt="image" align="right">
+								<p class="text-justify">
+									"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+								</p>
+								<p class="text-justify">
+									"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+								</p>
+							</div>
+							<div class="form-footer">
+								<button type="button" class="btn btn-primary btn-lg waves-effect waves-light m-1" id="alert-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布</font></font></button>
+								<button type="button" class="btn btn-info btn-lg waves-effect waves-light m-1" id="confirm-btn-alert"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">撤销</font></font></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End content-wrapper-->
+		<!--Start Back To Top Button-->
+		<a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+		<!--End Back To Top Button-->
+
+		</div>
+		<!--End wrapper-->
+
+		<!-- Bootstrap core JavaScript-->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/popper.min.js' %}"></script>
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+		<!-- simplebar js -->
+		<script src="{% static 'assets/plugins/simplebar/js/simplebar.js' %}"></script>
+		<!-- waves effect js -->
+		<script src="{% static 'assets/js/waves.js' %}"></script>
+		<!-- sidebar-menu js -->
+		<script src="{% static 'assets/js/sidebar-menu.js' %}"></script>
+		<!-- Custom scripts -->
+		<script src="{% static 'assets/js/app-script.js' %}"></script>
+
+		<script src="{% static 'assets/plugins/summernote/dist/summernote-bs4.min.js' %}"></script>
+		<!--Sweet Alerts -->
+		<script src="{% static 'assets/plugins/alerts-boxes/js/sweetalert.min.js' %}"></script>
+		<script src="{% static 'assets/plugins/alerts-boxes/js/sweet-alert-script.js' %}"></script>
+		<script>
+			$('#summernoteEditor').summernote({
+				height: 400,
+				tabsize: 2
+			});
+		</script>
+
+	</body>
+
+</html>

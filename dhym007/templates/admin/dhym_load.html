@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>后台管理</title>
+  <!--favicon-->
+  <link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="{% static 'assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="{% static 'assets/css/app-style.css' %}" rel="stylesheet"/>
+  
+</head>
+
+<body>
+
+
+	    <div class="row mt-3">
+	        <div class="col-12 col-lg-6 col-xl-4" style="margin-left: 20px;">
+	          <div class="card gradient-ibiza">
+	            <div class="card-body">
+	              <div class="media align-items-center">
+	              <div class="media-body">
+	                 <p class="text-white">总访问量</p>
+	                <h4 class="text-white line-height-5">85,297</h4>
+	              </div>
+	              <div class=""><span id="dashboard2-chart-1"></span></div>
+	            </div>
+	            </div>
+	            <div class="card-footer border-light-2">
+	              <p class="mb-0 text-white">
+	                    <span class="mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+	                    <span class="text-nowrap">当月</span>
+	                  </p>
+	            </div>
+	          </div>
+	        </div>
+        </div><!--End Row-->
+      <div class="row">
+        <div class="col-12 col-lg-12 col-xl-12">
+          <div class="card">
+    		   <div class="card-header">
+                <i class="fa fa-line-chart"></i> 网站访问曲线图
+    				<div class="card-action">
+
+              <div class="form-group mb-0">
+                <select class="form-control form-control-sm">
+                  <option>Jan 18</option>
+                  <option>Feb 18</option>
+                  <option>Mar 18</option>
+                  <option>Apr 18</option>
+                  <option>May 18</option>
+                  <option>Jun 18</option>
+                  <option>Jul 18</option>
+                  <option>Aug 18</option>
+                  <option selected>Sept 18</option>
+                </select>
+              </div>
+                     </div>
+    				</div>
+                 <div class="card-body">
+                   <canvas id="dashboard2-chart-4" height="100"></canvas>
+                 </div>
+          </div>
+        </div>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	
+  <!-- simplebar js -->
+  <script src="{% static 'assets/plugins/simplebar/js/simplebar.js' %}"></script>
+  <!-- waves effect js -->
+  <script src="{% static 'assets/js/waves.js' %}"></script>
+  <!-- sidebar-menu js -->
+  <script src="{% static 'assets/js/sidebar-menu.js' %}"></script>
+  <!-- Custom scripts -->
+  <script src="{% static 'assets/js/app-script.js' %}"></script>
+  <!-- Vector map JavaScript -->
+  <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js' %}"></script>
+  <script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
+  <!-- Chart js -->
+  <script src="{% static 'assets/plugins/Chart.js/Chart.min.js' %}"></script>
+  <!-- Sparkline JS -->
+  <script src="{% static 'assets/plugins/sparkline-charts/jquery.sparkline.min.js' %}"></script>
+  <!-- Index js -->
+  <script src="{% static 'assets/js/index2.js' %}"></script>
+  
+</body>
+</html>

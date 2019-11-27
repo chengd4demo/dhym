@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>新闻发布</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
+    <!-- simplebar CSS-->
+    <link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <!--Data Tables -->
+    <link href="{% static 'assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet"
+          type="text/css">
+    <link href="{% static 'assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css' %}" rel="stylesheet"
+          type="text/css">
+    <!-- animate CSS-->
+    <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{% static 'assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{% static 'assets/css/app-style.css' %}" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2" style="border-bottom: 1px solid rgba(192,192,192,0.5);">
+    <div class="col-sm-9">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <form class="search-bar" id="contact-form" action="{% url 'adminSecond:dhym_adminews' %}"
+                      method="post">
+                    {#                            <input type="text" class="form-control" placeholder="Enter keywords">#}
+                    <div class="btn-group m-1">
+                        <input type="text" id="newNameId" name="newname" style="height: 39px;" value="{{ newname }}"
+                               class="form-control">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i
+                                class="fa fa-search"></i> <span>搜索</span></button>
+                    </div>
+                </form>
+            </li>
+        </ol>
+    </div>
+    <!--
+        右边新增
+    -->
+    <div class="col-sm-3" style="padding-right: 35px;">
+        <div class="btn-group float-sm-right">
+
+            <a href="{% url 'adminSecond:dhym_addnews' %}" target='mains' id='a_clin'
+               style="display: inline-block;width: 120px;color:#fff;background-color:#55ACEE;height: 40px;text-align: center;line-height:40px;"><i
+                    class="icon-plus icons" style="padding-right: 0px;font-size: 12px;padding-right: 5px;"></i>新闻发布</a>
+        </div>
+    </div>
+</div>
+
+<!--
+    作者：949406202@qq.com
+    时间：2019-11-25
+    描述：数据报表
+-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="default-datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header text-uppercase text-primary">
+                                        <font style="vertical-align: inherit;">每页显示<span
+                                                style="color: red">{{ per_page }}</span>条数据 / 共有 <span
+                                                style="color:red">{{ numbs }}</span> 页数据</font>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="thead-primary">
+                                                <tr>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">新闻标题</font>
+                                                        </font>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">新闻简介</font>
+                                                        </font>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">发布人</font>
+                                                        </font>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">发布时间</font>
+                                                        </font>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">阅读次数</font>
+                                                        </font>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">编辑</font>
+                                                        </font>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for new in page_object.object_list %}
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">{{ new.news_title }}</font>
+                                                            </font>
+                                                        </th>
+                                                        <td>
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">{{ new.news_paper }}</font>
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">{{ new.news_user }}</font>
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">{{ new.news_date }}</font>
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">{{ new.news_date }}</font>
+                                                            </font>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button"
+                                                                    onclick="onDelete({{ new.id }})"
+                                                                    class="btn btn-primary btn-sm waves-effect waves-light m-1"
+                                                                    id="alert-success"><font
+                                                                    style="vertical-align: inherit;"><font
+                                                                    style="vertical-align: inherit;">删除</font></font>
+                                                            </button>
+                                                            <button type="button"
+                                                                    class="btn btn-info btn-sm waves-effect waves-light m-1"
+                                                                    id="confirm-btn-alert"><font
+                                                                    style="vertical-align: inherit;"><font
+                                                                    style="vertical-align: inherit;">修改</font></font>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4 col-md-4 col-lg-4 offset-8">
+                                <div class="dataTables_paginate paging_simple_numbers" id="default-datatable_paginate">
+                                    <ul class="pagination">
+                                        {#判断是否有上一页#}
+                                        {% if page_object.has_previous %}
+                                            <li class="paginate_button page-item previous"
+                                                id="default-datatable_previous">
+                                                <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_object.previous_page_number }}"
+                                                   aria-controls="default-datatable" data-dt-idx="0" tabindex="0"
+                                                   class="page-link">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">上一页</font>
+                                                    </font>
+                                                </a>
+                                            </li>
+                                        {% else %}
+                                            <li style="display: none" class="paginate_button page-item previous"
+                                                id="default-datatable_previous">
+                                                <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_index }}"
+                                                   aria-controls="default-datatable" data-dt-idx="0" tabindex="0"
+                                                   class="page-link">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">上一页</font>
+                                                    </font>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                        {#后台传来的页码数#}
+                                        {% for page_index in page_range %}
+                                            {#判断当前的下标是否是我们所点击的下标，是的话就给个默认值#}
+                                            {% ifequal page_index page_object.number %}
+                                                <li class="paginate_button page-item active">
+                                                    {#打印一个个的页码,给每个页码点击按钮#}
+                                                    <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_index }}"
+                                                       aria-controls="default-datatable" data-dt-idx="1" tabindex="0"
+                                                       class="page-link">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">{{ page_index }}</font>
+                                                        </font>
+                                                    </a>
+                                                </li>
+                                            {% else %}
+                                                <li class="paginate_button page-item">
+                                                    {#打印一个个的页码,给每个页码点击按钮#}
+                                                    <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_index }}"
+                                                       aria-controls="default-datatable" data-dt-idx="1" tabindex="0"
+                                                       class="page-link">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">{{ page_index }}</font>
+                                                        </font>
+                                                    </a>
+                                                </li>
+                                            {% endifequal %}
+                                        {% endfor %}
+                                        {#判断是否有下一页，才进行点击#}
+                                        {% if page_object.has_next %}
+                                            <li class="paginate_button page-item next" id="default-datatable_next">
+                                                <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_object.next_page_number }}"
+                                                   aria-controls="default-datatable" data-dt-idx="7" tabindex="0"
+                                                   class="page-link">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">下一页</font>
+                                                    </font>
+                                                </a>
+                                            </li>
+                                        {% else %}
+                                            <li style="display: none" class="paginate_button page-item next"
+                                                id="default-datatable_next">
+                                                <a href="{% url 'adminSecond:dhym_adminews' %}?page={{ page_index }}"
+                                                   aria-controls="default-datatable" data-dt-idx="7" tabindex="0"
+                                                   class="page-link">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">下一页</font>
+                                                    </font>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+<!-- simplebar js -->
+<script src="{% static 'assets/plugins/simplebar/js/simplebar.js' %}"></script>
+<!-- waves effect js -->
+<script src="{% static 'assets/js/waves.js' %}"></script>
+<!-- sidebar-menu js -->
+<script src="{% static 'assets/js/sidebar-menu.js' %}"></script>
+<!-- Custom scripts -->
+<script src="{% static 'assets/js/app-script.js' %}"></script>
+
+<!--Data Tables js-->
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/jszip.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/vfs_fonts.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js' %}"></script>
+<script>
+    $('#a_clin').hover(function () {
+        $(this).css({
+            'background-color': '#fff',
+            'color': '#55ACEE'
+        })
+    }, function () {
+        $(this).css({
+            'background-color': '#55ACEE',
+            'color': '#fff'
+        })
+    })
+    function onDelete(id) {
+
+        $.ajax({
+            url: '/adminmanage/delnew',
+            type: "GET",
+            dataType: "json",
+            data: {"id": id},
+            async: false,
+            success: function (data) {
+                search('')
+                alert(data.msg)
+            },
+            error: function (data) {
+                round_error_noti('服务器繁忙，请稍后重试！');
+            }
+        });
+    }
+     function search(param) {
+        window.location.href = '/adminmanage/dhym_adminews'
+    }
+</script>
+</body>
+
+</html>
